@@ -1,5 +1,5 @@
-# tabla-de-frecuencias
-Script para construir una tabla de frecuencias con posibilidad de exportarla a un excel
+# Tabla de Frecuencias con python
+ Script para construir una tabla de frecuencias con posibilidad de exportarla a un excel. Está muy comentado, por lo que es perfecto para educar en matemáticas y programación basica.
 
 ### Para empezar...
 - #### Versión local

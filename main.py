@@ -16,7 +16,7 @@ def buscar_n_elemento(lista, e):
 def main():
 
 
-    # definir los resultados de la población del estudio. Deben ser solo números y estar en el formato en el que estan aquí
+    # definir los resultados de la población del estudio. Deben ser solo números y estar en el formato en el que estan aquí.
 
     poblacion = [38, 38, 38, 40, 35, 39, 37, 37, 40, 37, 36, 35, 36, 40, 40, 42, 41, 42, 39, 41, 38, 39, 35, 36, 42, 42]
 

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-# pip install xlsxwriter
+# ejecutar pip install xlsxwriter
+
 import xlsxwriter
 import itertools 
 

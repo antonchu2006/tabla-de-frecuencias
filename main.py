@@ -26,10 +26,12 @@ def main():
     Xi = set(poblacion)
 
     # declarar variables
-
-    Pi = 0      # Porcentajes acumulados
+    Pii = []    # porcentaje acumulado
+    Fii = []    # frecuencia absoluta acumulado
+    Hii = []    # frecuencia relativa acumulada 
+    Pi = 0      # Porcentajes acumulado total
     Hi = 0      # frecuencia relativa acumulada
-    Fi = 0      # frecuencia absoluta acumulada
+    Fi = 0      # frecuencia absoluta acumulada total
     pi = []     # porcentaje
     hi = []     # frecuencia relativa
     fi = []     # frecuencia absoluta
@@ -40,7 +42,13 @@ def main():
     for x in Xi:
         fi.append(buscar_n_elemento(poblacion, x))
 
-    # calcular sumatorio de fi, frecuencia absoluta acumulada
+    # calcular frecuencia absoluta acumulada
+
+    for x in fi:
+        Fi += x
+        Fii.append(Fi)
+
+    # calcular sumatorio de fi, frecuencia absoluta acumulada total
 
     Fi = len(poblacion) 
 
@@ -55,6 +63,7 @@ def main():
 
     for x in hi:
         Hi += x
+        Hii.append(Hi)
 
     # calcular porcentaje
 
@@ -65,6 +74,7 @@ def main():
 
     for x in pi:
         Pi += x
+        Pii.append(Pi)
 
     # crear fichero excel
 
@@ -80,6 +90,9 @@ def main():
     worksheet.write('B1', 'Frecuencia absoluta  (fi)', bold)
     worksheet.write('C1', 'Frecuencia relativa  (hi)', bold)
     worksheet.write('D1', 'Porcentaje           (pi)', bold)
+    worksheet.write('E1', 'Frecuencia relativa acumulada (Hi)', bold)
+    worksheet.write('F1', 'Porcentaje acumulado (Pi)', bold)
+    worksheet.write('G1', 'Frecuencia absoluta acumulada (Fi)', bold)
 
     # fila y columna donde empezar
 
@@ -88,28 +101,17 @@ def main():
 
     # crea las columnas y filas con los datos previamente calculados
 
-    for var, fii, hii, pii in zip(Xi, fi, hi, pi):
+    for var, fii, hii, pii, Hiii, Piii, Fiii in zip(Xi, fi, hi, pi, Hii, Pii, Fii):
         worksheet.write(row, col,     var)
         worksheet.write(row, col + 1, fii)
         worksheet.write(row, col + 2, hii)
         worksheet.write(row, col + 3, pii)
+        worksheet.write(row, col + 4, Hiii)
+        worksheet.write(row, col + 5, Piii)
+        worksheet.write(row, col + 6, Fiii)
         row += 1
-
-    # inserta la Fi
-    worksheet.write('E1', 'Frecuencia absoluta acumulada (Fi)', bold)
-    worksheet.write('E2', Fi)
-
-    # inserta la Hi
-    worksheet.write('F1', 'Frecuencia relativa acumulada (Hi)', bold)
-    worksheet.write('F2', Hi)
-
-    # inserta el Pi
-    worksheet.write('G1', 'Porcentaje acumulado (Pi)', bold)
-    worksheet.write('G2', Fi)
     
     workbook.close()
-
-
 
 if __name__ == "__main__":
     main()

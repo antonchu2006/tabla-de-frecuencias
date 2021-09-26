@@ -22,4 +22,4 @@ O cambiar el "main.py" por el nombre del otro script si es el que estas usando.
 
 Si tienes cualquier problema, trata de buscar por internet el error y si no escribe una issue en este repositorio y trataré de arreglarlo o buscarte asistencia. 
 - #### Versión de Google Colab
-Ya tiene instrucciones detalladas en la propia notebook, siguelas y no habr
+Ya tiene instrucciones detalladas en la propia notebook, siguelas y no habrá problemas.

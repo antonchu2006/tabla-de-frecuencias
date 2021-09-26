@@ -11,6 +11,7 @@ apt install python3 python3-pip
 Si vas a usar la versión que exporta los resultados a Excel, primero necesitas instalar la librería xlsxwriter. Para hacer eso ejecuta:
 ```bash
 pip install xlsxwriter
+pip install matplotlib
 ```
 Después, descarga este repositorio usando el comando "git" o descargandolo como zip. Descomprimelo si has hecho esto último y ve a la carpeta con los scripts.
 No tengas miedo de abrirlos con un editor de texto y modificar cosas, cambiar los datos y cosas asi, ya que si el script se rompe siempre puedes volver a descargarlo y ya.

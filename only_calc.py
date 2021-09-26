@@ -22,10 +22,12 @@ def main():
     Xi = set(poblacion)
 
     # declarar variables
-
-    Pi = 0      # Porcentajes acumulados
+    Pii = []    # porcentaje acumulado
+    Fii = []    # frecuencia absoluta acumulado
+    Hii = []    # frecuencia relativa acumulada 
+    Pi = 0      # Porcentajes acumulado total
     Hi = 0      # frecuencia relativa acumulada
-    Fi = 0      # frecuencia absoluta acumulada
+    Fi = 0      # frecuencia absoluta acumulada total
     pi = []     # porcentaje
     hi = []     # frecuencia relativa
     fi = []     # frecuencia absoluta
@@ -36,7 +38,13 @@ def main():
     for x in Xi:
         fi.append(buscar_n_elemento(poblacion, x))
 
-    # calcular sumatorio de fi, frecuencia absoluta acumulada
+    # calcular frecuencia absoluta acumulada
+
+    for x in fi:
+        Fi += x
+        Fii.append(Fi)
+
+    # calcular sumatorio de fi, frecuencia absoluta acumulada total
 
     Fi = len(poblacion) 
 
@@ -50,7 +58,8 @@ def main():
     # calcular frecuencia relativa acumulada
 
     for x in hi:
-        Hi += x
+        Hi += x # resultado final
+        Hii.append(Hi)
 
     # calcular porcentaje
 
@@ -60,8 +69,8 @@ def main():
     # calcular porcentaje acumulado
 
     for x in pi:
-        Pi += x
-
+        Pi += x # resultado final
+        Pii.append(Pi)
 
 if __name__ == "__main__":
     main()

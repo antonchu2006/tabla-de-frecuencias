@@ -1,6 +1,27 @@
 #!/usr/bin/python3
 
+# pip install numpy
+import numpy as np
+import math
+
+# formula para Dx scripteada
+
+def desviacion_absoluta_media(Xi, media, fi):
+    n = 0
+    for Xii, Fii in zip(Xi,fi):
+        n += abs(Xii-media)*Fii
+    return n/len(Xi)
+
+# formula para varianza scripteada
+
+def varianza(Xi, media, fi):
+    n = 0
+    for Xii, Fii in zip(Xi,fi):
+        n += ((Xii-media)**2)*Fii
+    return n/len(Xi)
+
 # esta funcion busca cuantas veces aparece un elemento en una lista, está copiada de stack overflow
+
 
 def buscar_n_elemento(lista, e):
     contador=0
@@ -22,6 +43,9 @@ def main():
     Xi = set(poblacion)
 
     # declarar variables
+    Mo = 0      # moda
+    Me = 0      # mediana
+    media = 0   # la media
     Pii = []    # porcentaje acumulado
     Fii = []    # frecuencia absoluta acumulado
     Hii = []    # frecuencia relativa acumulada 
@@ -31,6 +55,10 @@ def main():
     pi = []     # porcentaje
     hi = []     # frecuencia relativa
     fi = []     # frecuencia absoluta
+    Dx = 0      # desviacion absoluta media
+    s2 = 0      # varianza
+    s = 0       # desviacion tipica
+    CV = 0      # coeficiente de variacion
 
 
     # calcular frecuencia absoluta
@@ -71,6 +99,40 @@ def main():
     for x in pi:
         Pi += x # resultado final
         Pii.append(Pi)
+
+    # calcular media
+
+    for x, y in zip(Xi, fi):
+        media += x*y
+    media = media / Fi
+
+    # calcular mediana usando numpy 
+
+    Me = np.median(poblacion)
+
+    # calcular moda 
+
+    for x in fi:
+        if (Mo is None or x > Mo):
+            Mo = x
+
+    
+    # calcular Dx
+
+    Dx = desviacion_absoluta_media(Xi, media, fi)
+
+    # calcular varianza 
+
+    s2 = varianza(Xi, media, fi)
+
+    # calcular desviacion tipica
+
+    s = math.sqrt(s2)
+
+    # calcular coeficiente de variacion 
+
+    CV = s / abs(media)
+
 
 if __name__ == "__main__":
     main()
